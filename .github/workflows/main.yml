@@ -12,3 +12,21 @@ jobs:
       run: |
         ./gradlew check nativeImage
     - run: app/build/graal/hello-world
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-binary
+        path: app/build/graal/hello-world
+
+  check-without-jvm:
+    runs-on: ubuntu-latest
+    container: fedora
+    steps:
+
+    - uses: actions/download-artifact@v2
+      id: download
+      with:
+        name: 'my-binary'
+        path: foo
+
+    - run: chmod +x foo && ./foo
