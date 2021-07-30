@@ -30,4 +30,4 @@ jobs:
         name: 'my-binary'
         path: foo
 
-    - run: ls -la foo
+    - run: chmod +x foo/hello-world && ./foo/hello-world
