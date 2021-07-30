@@ -1,0 +1,16 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: ghcr.io/graalvm/graalvm-ce:java11-21.2
+    steps:
+    - uses: actions/checkout@v2
+    - run: gu install native-image
+    - name: Build
+      run: |
+        ./gradlew check nativeImage
+    - run: app/build/graal/hello-world
