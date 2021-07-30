@@ -21,6 +21,7 @@ jobs:
   check-without-jvm:
     runs-on: ubuntu-latest
     container: fedora
+    needs: build
     steps:
 
     - uses: actions/download-artifact@v2
