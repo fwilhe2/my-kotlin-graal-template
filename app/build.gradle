@@ -1,5 +1,5 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.4.31'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.21'
     id 'application'
     id 'com.palantir.graal' version '0.9.0'
 }
@@ -14,6 +14,8 @@ dependencies {
     // Use the Kotlin JDK 8 standard library.
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
 
+    implementation("com.github.ajalt.clikt:clikt:3.2.0")
+
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
 }
@@ -25,4 +27,5 @@ application {
 graal {
     mainClass 'my.kotlin.graal.template.AppKt'
     outputName 'hello-world'
+    option '--no-fallback'
 }

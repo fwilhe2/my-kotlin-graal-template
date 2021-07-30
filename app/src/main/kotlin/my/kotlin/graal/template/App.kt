@@ -1,12 +1,14 @@
 package my.kotlin.graal.template
 
-class App {
-    val greeting: String
-        get() {
-            return "Hello World!"
-        }
+import com.github.ajalt.clikt.core.*
+import com.github.ajalt.clikt.parameters.options.*
+
+class HelloMyWorld: CliktCommand() {
+    val name by option(help="your name")
+    override fun run() {
+        echo("Hello World! ${name}")
+    }
 }
 
-fun main() {
-    println(App().greeting)
-}
+fun main(args: Array<String>) = HelloMyWorld().main(args)
+
