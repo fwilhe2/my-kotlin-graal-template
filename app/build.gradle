@@ -28,4 +28,5 @@ graal {
     mainClass 'my.kotlin.graal.template.AppKt'
     outputName 'hello-world'
     option '--no-fallback'
+    option '-H:+StaticExecutableWithDynamicLibC'
 }
