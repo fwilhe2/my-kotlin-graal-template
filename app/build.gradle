@@ -27,5 +27,5 @@ application {
 graal {
     mainClass 'my.kotlin.graal.template.AppKt'
     outputName 'hello-world'
-    option '--no-fallback'
+    // option '--no-fallback'
 }
