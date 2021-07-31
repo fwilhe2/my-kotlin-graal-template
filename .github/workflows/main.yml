@@ -9,12 +9,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: |
-        ./gradlew check nativeImage
+      run: ./gradlew check nativeImage
     - run: app/build/graal/hello-world
 
-    - run: docker build -t foo .
-    - run: docker run foo
+    # Check if the built binary can be run in a distroless container
+    - run: docker build -t distroless .
+    - run: docker run distroless
 
     - uses: actions/upload-artifact@v2
       with:
@@ -47,6 +47,5 @@ jobs:
     - run: dnf groupinstall -y "C Development Tools and Libraries"
     - run: dnf install -y zlib-static
     - name: Build
-      run: |
-        ./gradlew check nativeImage
+      run: ./gradlew check nativeImage
     - run: app/build/graal/hello-world
