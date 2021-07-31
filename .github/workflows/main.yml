@@ -44,6 +44,7 @@ jobs:
       with:
         distribution: 'adopt'
         java-version: '11'
+    - run: dnf groupinstall 'Development Tools'
     - name: Build
       run: |
         ./gradlew check nativeImage
