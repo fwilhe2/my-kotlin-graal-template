@@ -40,7 +40,7 @@ jobs:
     container: fedora
     steps:
     - uses: actions/checkout@v2
-    - run: dnf install -y java-11-openjdk-devel
+    - run: dnf install -y java-11-openjdk java-11-openjdk-devel
     - name: Build
       run: |
         ./gradlew check nativeImage
