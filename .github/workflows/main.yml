@@ -34,3 +34,14 @@ jobs:
         path: foo
 
     - run: chmod +x foo/hello-world && ./foo/hello-world
+
+  build-fedora:
+    runs-on: ubuntu-latest
+    container: fedora
+    steps:
+    - uses: actions/checkout@v2
+    - run: dnf install -y java-11-openjdk-devel
+    - name: Build
+      run: |
+        ./gradlew check nativeImage
+    - run: app/build/graal/hello-world
