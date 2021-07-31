@@ -44,7 +44,8 @@ jobs:
       with:
         distribution: 'adopt'
         java-version: '11'
-    - run: dnf groupinstall -y 'Development Tools'
+    - run: dnf groupinstall -y "@C Development Tools and Libraries"
+    - run: dnf install -y zlib-static
     - name: Build
       run: |
         ./gradlew check nativeImage
