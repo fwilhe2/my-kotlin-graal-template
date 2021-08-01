@@ -11,7 +11,7 @@ jobs:
         os: [macos-latest, windows-latest, ubuntu-latest]
     steps:
     - uses: actions/checkout@v2
-    - run: choco install -d windows-sdk-7.1 kb2519277
+    - run: choco install -d windows-sdk-7.1
       if: ${{ matrix.os == 'windows-latest' }}
 
     - name: Build
