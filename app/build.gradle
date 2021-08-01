@@ -27,6 +27,11 @@ application {
 graal {
     mainClass 'my.kotlin.graal.template.AppKt'
     outputName 'hello-world'
-    option '--no-fallback'
-    option '-H:+StaticExecutableWithDynamicLibC'
+
+    OperatingSystem os = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem;
+    if (os.isLinux()) {
+        // Not supported on darwin
+        options.add("-H:+StaticExecutableWithDynamicLibC")
+    }
+    options.add("--no-fallback")
 }

@@ -11,6 +11,9 @@ jobs:
         os: [macos-latest, windows-latest, ubuntu-latest]
     steps:
     - uses: actions/checkout@v2
+    - run: choco install -d windows-sdk-7.1 kb2519277
+      if: ${{ matrix.os == 'windows-latest' }}
+
     - name: Build
       run: ./gradlew check nativeImage
     - run: cp app/build/graal/hello-world* ./app-${{ matrix.os }}
