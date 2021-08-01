@@ -68,3 +68,16 @@ jobs:
     - name: Build
       run: ./gradlew check nativeImage
     - run: app/build/graal/hello-world
+
+  build-jar:
+    runs-on: ubuntu-latest
+    container: fedora
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11'
+    - name: Build
+      run: ./gradlew check distTar distZip
+    - run: find app/build/
