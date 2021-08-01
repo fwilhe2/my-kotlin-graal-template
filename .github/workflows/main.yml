@@ -4,6 +4,22 @@ on:
   workflow_dispatch:
 
 jobs:
+  matrix:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: ./gradlew check nativeImage
+    - run: cp app/build/graal/hello-world* ./app-${{ matrix.os }}
+      shell: bash
+    - run: file ./app-${{ matrix.os }}
+      shell: bash
+    - run: ./app-${{ matrix.os }}
+      shell: bash
+
   build:
     runs-on: ubuntu-latest
     steps:
