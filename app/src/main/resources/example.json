@@ -1,0 +1,55 @@
+{
+    "Subscriptions": [
+        {
+            "Provider": "Netflix",
+            "PaymentInterval": "Monthly",
+            "PaymentAmount": 10
+        },
+        {
+            "Provider": "My local ISP",
+            "PaymentInterval": "Yearly",
+            "PaymentAmount": 80
+        },
+        {
+            "Provider": "Bike Rental",
+            "PaymentInterval": "Quarterly",
+            "PaymentAmount": 24.99
+        }
+    ],
+    "Memberships": [
+        {
+            "Organization": "Book Club",
+            "PaymentInterval": "Yearly",
+            "PaymentAmount": 10
+        },
+        {
+            "Organization": "Football Club",
+            "PaymentInterval": "Monthly",
+            "PaymentAmount": 10
+        }
+    ],
+    "Donations": [
+        {
+            "Organization": "Animal Shelter",
+            "PaymentInterval": "Quarterly",
+            "PaymentAmount": 10
+        },
+        {
+            "Organization": "Disadvantaged Children Care",
+            "PaymentInterval": "Quarterly",
+            "PaymentAmount": 10
+        }
+    ],
+    "Insurances": [
+        {
+            "Provider": "Car",
+            "PaymentInterval": "Yearly",
+            "PaymentAmount": 1000
+        },
+        {
+            "Provider": "Home",
+            "PaymentInterval": "Yearly",
+            "PaymentAmount": 2800
+        }
+    ]
+}
