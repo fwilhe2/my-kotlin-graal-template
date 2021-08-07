@@ -14,12 +14,12 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build
       run: ./gradlew check nativeImage
-    - run: cp app/build/graal/hello-world* ./app-${{ matrix.os }}
-      shell: bash
-    - run: file ./app-${{ matrix.os }}
-      shell: bash
-    - run: ./app-${{ matrix.os }}
-      shell: bash
+    - name: Run Windows exe
+      if: ${{ matrix.os == 'windows-latest' }}
+      run: build\graal\hello-world.exe
+    - name: Run binary
+      if: ${{ matrix.os != 'windows-latest' }}
+      run: build/graal/hello-world
 
   build-jar:
     runs-on: ubuntu-latest
