@@ -16,10 +16,10 @@ jobs:
       run: ./gradlew check nativeImage
     - name: Run Windows exe
       if: ${{ matrix.os == 'windows-latest' }}
-      run: build\graal\hello-world.exe
+      run: app\build\graal\hello-world.exe
     - name: Run binary
       if: ${{ matrix.os != 'windows-latest' }}
-      run: build/graal/hello-world
+      run: app/build/graal/hello-world
 
   build-jar:
     runs-on: ubuntu-latest
