@@ -27,6 +27,7 @@ application {
 graal {
     mainClass 'my.kotlin.graal.template.AppKt'
     outputName 'hello-world'
+    javaVersion '11'
 
     OperatingSystem os = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem;
     if (os.isLinux()) {
